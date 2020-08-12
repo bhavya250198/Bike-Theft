@@ -1,5 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+This project can be seen on https://bike-thefts-berlin.herokuapp.com/
+The frontend was created in React libraries used were axios and material ui more and more development going on
 ## Available Scripts
 
 In the project directory, you can run:
