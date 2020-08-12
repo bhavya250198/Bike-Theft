@@ -7,24 +7,33 @@ class Form extends React.Component{
         super(props);
         this.state={
             value:'Enter text',
-            startDate: new Date("2020/08/12"),
-            endDate: new Date("2020/08/14")
+            description:'Enter text',
+            startDate: '2020/08/10',
+            endDate: '2020/12/10'
         }
-        this.onClick =this.onClick.bind(this);
+        
         this.handleChange= this.handleChange.bind(this);
         this.onChangeStartDate = this.onChangeStartDate.bind(this);
         this.onChangeEndDate = this.onChangeEndDate.bind(this);
+        this.onhandleChangeDescription = this.onhandleChangeDescription.bind(this);
     }
     onClick=()=>{
-        console.log("value",this.state.value);
-        console.log("start date",this.state.startDate);
-        console.log("end date",this.state.endDate);
+        let titletext=this.state.value;
+        
+        this.props.onfiltertext(titletext);
+      
+       
     }
     handleChange = (event) => {
         this.setState({
           value: event.target.value,
         });
       };
+      onhandleChangeDescription=(event)=>  {
+          this.setState({
+              description:event.target.value
+          });
+      }
       onChangeStartDate =(event)=>{
           this.setState({
               startDate:event.target.value
@@ -43,25 +52,24 @@ class Form extends React.Component{
             className="text-field"
           id="outlined-required"
           label="Case-Description"
-          value={this.state.value}
-         
-          onChange={this.handleChange}
-          variant="outlined"
+          value={this.state.description}
+          onChange={this.onhandleChangeDescription}
+          
         />
         <TextField
             className="text-field"
           id="outlined-required"
-          label="title"
+          label="Title"
+
           value={this.state.value}
-         
           onChange={this.handleChange}
-          variant="outlined"
+        
         />
       <TextField
           className="text-field"
     id="date"
     label="from-date"
-    format="yyyy/mm/dd"
+   
     type="date"
    
     selected={this.state.startDate}
@@ -76,7 +84,7 @@ class Form extends React.Component{
           className="text-field"
     id="date"
     label="to-date"
-    format="yyyy/mm/dd"
+    // format="yyyy/mm/dd"
     type="date"
     
     selected={this.state.endDate}
@@ -87,7 +95,7 @@ class Form extends React.Component{
         minDate={this.state.startDate}
     
   />
-        <Button variant="outlined" color="primary" onClick={this.onClick}>Filter</Button>
+        <Button className="button-filter" variant="outlined" color="primary" onClick={()=>{this.onClick()}}>Filter</Button>
 
             </div>
             </form>

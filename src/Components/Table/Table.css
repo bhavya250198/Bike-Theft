@@ -1,11 +1,13 @@
 .table-of-details{
     background-color: white;
     margin-top:83px;
+    margin-left:12px;
 }
 div.ReactTable .rt-thead .rt-resizable-header-content {
     overflow: hidden;
     text-overflow: ellipsis;
     color: black;
+    font-size:20px;
 }
 div.ReactTable .rt-tbody .rt-td {
     border-right: 1px solid rgba(0,0,0,0.02);

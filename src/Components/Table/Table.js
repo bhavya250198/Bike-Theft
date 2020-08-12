@@ -2,13 +2,15 @@ import React from "react";
 import ReactTable from "react-table-6";
 import 'react-table-6/react-table.css';
 import "../Table/Table.css";
-import axios from "axios";
+
  class TableDetails extends React.Component{
      constructor(props)
      {
          super(props);
          this.state={
              data:[],
+             resizable:true,
+             sortable:true,
              filterable:true,
              columns:[
                 {
@@ -42,33 +44,25 @@ import axios from "axios";
                   {
                     Header: "Description",
                     accessor: "description",
-                    width:300
+                    width:400
                   }
               
              ]
          }
      }
-     componentDidMount(){
-         axios.get('https://bikewise.org/api/v2/incidents?page=4&incident_type=theft&proximity_square=100')
-         .then(response => {
-                     console.log(response);
-                      
-                      this.setState({ data: response.data.incidents });
-                      console.log(this.state.data);
-                 })
-                .catch(function (error){
-                     console.log(error);
-                  })
-     }
+    
      render()
      {
          return(
              <div className="table-of-details">
                  <ReactTable
                  className="table-details"
-                 data={this.state.data}
+                 data={this.props.data}
                  columns={this.state.columns}
-                 filterable={this.state.filterable}/>
+                 pageSize={(this.props.data.length > 10) ? 10 : this.props.data.length}
+                 filterable={this.state.filterable}
+                 resizable= {this.state.resizable}
+                 sortable={this.state.sortable}/>
              </div>
          );
      }
