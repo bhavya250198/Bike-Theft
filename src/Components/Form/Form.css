@@ -1,0 +1,12 @@
+.form-filter{
+    margin-top: 37px;
+    background-color: aliceblue;
+    padding: 40px 100px 40px 100px;
+}
+div.MuiFormControl-root.MuiTextField-root.text-field{
+    margin: 0px 67px 0px 10px;
+}
+div.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary
+{
+    margin:10px;
+}
