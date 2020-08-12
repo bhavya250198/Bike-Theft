@@ -20,6 +20,7 @@ class App extends React.Component {
                  this.setState({ data: response.data.incidents,
                 presentdata:response.data.incidents });
                  console.log(this.state.data);
+                 console.log(this.state.presentdata);
             })
            .catch(function (error){
                 console.log(error);
@@ -28,7 +29,7 @@ class App extends React.Component {
   onfiltertext = (titletext)=>{
     let filteredtitledata = this.state.presentdata;
     filteredtitledata=filteredtitledata.filter((i)=>{
-      return i.title === titletext;
+      return i.title == titletext;
     })
     this.setState({
       data:filteredtitledata
@@ -39,19 +40,19 @@ class App extends React.Component {
   onfilterdescription = (descriptiontext)=>{
     let filterdescriptiondata = this.state.presentdata
     filterdescriptiondata = filterdescriptiondata.filter((j)=>{
-      return j.description === descriptiontext
+      return j.description == descriptiontext
     })
      this.setState({
       data:filterdescriptiondata
     },()=>{
-      console.log("title-data",this.state.data)
+      console.log("description-data",this.state.data)
     })
 
   }
   onfilteroccuredat =(occuredatnumber)=>{
     let filteroccuredatdata = this.state.presentdata
     filteroccuredatdata = filteroccuredatdata.filter((k)=>{
-      return k.ocurred_at === occuredatnumber
+      return k.ocurred_at == occuredatnumber
     })
     this.setState({
       data:filteroccuredatdata
@@ -61,7 +62,7 @@ class App extends React.Component {
   onfilterupdateat =(updatenumber) =>{
     let filterupdatedata = this.state.presentdata
     filterupdatedata = filterupdatedata.filter((l)=>{
-      return l.update_at === updatenumber
+      return l.update_at == updatenumber
     })
     this.setState({
       data:filterupdatedata

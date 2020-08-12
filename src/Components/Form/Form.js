@@ -7,10 +7,10 @@ class Form extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            value:'Enter text',
-            description:'Enter text',
-            occured_at:'1000241',
-            updated_at:'10000440'
+            value:'',
+            description:'',
+            occured_at:'',
+            updated_at:''
         }
         
         this.handleChange= this.handleChange.bind(this);
@@ -36,6 +36,13 @@ class Form extends React.Component{
         this.props.onfilterupdateat(updatenumber);
     }
     onReset =()=>{
+        this.setState({
+            title:'',
+            description:'',
+            occured_at:'',
+            updated_at:''
+
+        })
         this.props.onReset();
     }
     handleChange = (event) => {
