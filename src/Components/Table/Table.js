@@ -17,7 +17,7 @@ import "../Table/Table.css";
             
                     Header: "Bike_Id",
                     accessor: "id",
-                    width:200
+                    width:140
                   },
                   {
                     Header: "Title",
