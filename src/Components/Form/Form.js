@@ -1,6 +1,7 @@
 import React from "react";
 import {TextField,Button} from "@material-ui/core";
 
+
 import "../Form/Form.css";
 class Form extends React.Component{
     constructor(props){
@@ -8,8 +9,8 @@ class Form extends React.Component{
         this.state={
             value:'Enter text',
             description:'Enter text',
-            startDate: '2020/08/10',
-            endDate: '2020/12/10'
+            occured_at:'1000241',
+            updated_at:'10000440'
         }
         
         this.handleChange= this.handleChange.bind(this);
@@ -20,9 +21,22 @@ class Form extends React.Component{
     onClick=()=>{
         let titletext=this.state.value;
         
-        this.props.onfiltertext(titletext);
-      
-       
+        this.props.onfiltertext(titletext);   
+    }
+    onfilteroccuredat=()=>{
+        let occuredatnumber = this.state.occured_at;
+        this.props.onfilteroccuredat(occuredatnumber);
+    }
+    onfilterdescription = ()=>{
+        let descriptiontext = this.state.description;
+        this.props.onfilterdescription(descriptiontext);
+    }
+    onfilterupdateat = ()=>{
+        let updatenumber = this.state.updated_at;
+        this.props.onfilterupdateat(updatenumber);
+    }
+    onReset =()=>{
+        this.props.onReset();
     }
     handleChange = (event) => {
         this.setState({
@@ -36,12 +50,12 @@ class Form extends React.Component{
       }
       onChangeStartDate =(event)=>{
           this.setState({
-              startDate:event.target.value
+              occured_at:event.target.value
           });      
       }
       onChangeEndDate =(event)=>{
         this.setState({
-              endDate:event.target.value
+              updated_at:event.target.value
         });
     }
     render(){
@@ -67,35 +81,29 @@ class Form extends React.Component{
         />
       <TextField
           className="text-field"
-    id="date"
-    label="from-date"
-   
-    type="date"
-   
-    selected={this.state.startDate}
-    onChange={this.onChangeStartDate}
-    variant="outlined"
-    selectsStart
-        startDate={this.state.startDate}
-        endDate={this.state.endDate}
+    // id="date"
     
+    label="occured-at"
+        
+
+    value={this.state.occured_at}
+    onChange={this.onChangeStartDate}
   />
    <TextField
           className="text-field"
-    id="date"
-    label="to-date"
+    // id="date"
+    label="updated-at"
     // format="yyyy/mm/dd"
-    type="date"
+    // type="date"
     
-    selected={this.state.endDate}
+    value={this.state.updated_at}
     onChange={this.onChangeEndDate}
-    variant="outlined"
-    selectsEnd
-        endDate={this.state.endDate}
-        minDate={this.state.startDate}
+    
     
   />
-        <Button className="button-filter" variant="outlined" color="primary" onClick={()=>{this.onClick()}}>Filter</Button>
+        <Button  variant="outlined" onClick={()=>{this.onClick();
+                                        this.onfilterupdateat();     this.onfilteroccuredat();this.onfilterdescription();}}>Filter</Button>
+        <Button  variant="outlined" onClick={this.onReset} >Reset</Button>
 
             </div>
             </form>

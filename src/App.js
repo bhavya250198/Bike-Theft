@@ -36,6 +36,42 @@ class App extends React.Component {
       console.log("title-data",this.state.data)
     })
   }
+  onfilterdescription = (descriptiontext)=>{
+    let filterdescriptiondata = this.state.presentdata
+    filterdescriptiondata = filterdescriptiondata.filter((j)=>{
+      return j.description === descriptiontext
+    })
+     this.setState({
+      data:filterdescriptiondata
+    },()=>{
+      console.log("title-data",this.state.data)
+    })
+
+  }
+  onfilteroccuredat =(occuredatnumber)=>{
+    let filteroccuredatdata = this.state.presentdata
+    filteroccuredatdata = filteroccuredatdata.filter((k)=>{
+      return k.ocurred_at === occuredatnumber
+    })
+    this.setState({
+      data:filteroccuredatdata
+    })
+
+  }
+  onfilterupdateat =(updatenumber) =>{
+    let filterupdatedata = this.state.presentdata
+    filterupdatedata = filterupdatedata.filter((l)=>{
+      return l.update_at === updatenumber
+    })
+    this.setState({
+      data:filterupdatedata
+    })
+  }
+  onReset=()=>{
+    this.setState({
+      data:this.state.presentdata
+    })
+  }
   componentDidMount(){
     this.fetchdetails();
   }
@@ -48,7 +84,8 @@ class App extends React.Component {
         
          <span className="police-dept">Police Department Berlin</span>
          <React.Fragment>
-         <Form onfiltertext={this.onfiltertext}/>
+         <Form onfiltertext={this.onfiltertext} onfilterupdateat={this.onfilterupdateat} onfilterdescription={this.onfilterdescription} onfilteroccuredat={this.onfilteroccuredat}
+         onReset={this.onReset}/>
          <TableDetails data = {this.state.data} />
          </React.Fragment>
       </header>

@@ -14,3 +14,21 @@ div.ReactTable .rt-tbody .rt-td {
     color: black;
     font-size: 13px;
 }
+.ReactTable .-pagination select {
+    border: 1px solid rgba(0,0,0,0.1);
+    background: #fff;
+    padding: 5px 7px;
+    font-size: 12px;
+    border-radius: 3px;
+    font-weight: normal;
+    outline-width: 0;
+}
+.ReactTable .-pagination .-pageJump input {
+    width: 70px;
+    text-align: center;
+    font-size: 12px;
+    /* margin-left:-245px; */
+}
+/* .-next{
+    margin-right:-248px;
+} */

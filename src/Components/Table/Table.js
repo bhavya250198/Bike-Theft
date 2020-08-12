@@ -17,7 +17,7 @@ import "../Table/Table.css";
             
                     Header: "Bike_Id",
                     accessor: "id",
-                    width:100
+                    width:200
                   },
                   {
                     Header: "Title",
@@ -44,7 +44,8 @@ import "../Table/Table.css";
                   {
                     Header: "Description",
                     accessor: "description",
-                    width:400
+                    width:350,
+                    
                   }
               
              ]
